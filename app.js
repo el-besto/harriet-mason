@@ -17,7 +17,7 @@
 *******************************************************************************/
 
 var express        = require('express'),
-    PORTLOCAL           = 3000,
+    PORTLOCAL      = 3000,
     bodyParser     = require('body-parser'),
     db             = require('./models'),
     passport       = require('passport'),
@@ -60,12 +60,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.serializeUser  ( function (user, done) {
-  console.log('Serialized just ran!');
   done(null, user.id);
 });
 
 passport.deserializeUser( function (id, done) {
-  console.log('Deserialize just ran!');
   db.user
     .find({ 
       where : 
@@ -302,6 +300,8 @@ app.get('/event', function(req, res){
   }
 });
 
+
+
 ////////////////////////////////////////////////////////////////////////////////
  /*                   *
  ** GUESTBOOK ROUTES  **
@@ -381,21 +381,27 @@ app.get('/guestbook/:user_id/posts/:id', function (req, res) {
 
 // when a user wants to delete a particular guestbook entry
 app.delete('/guestbook/:user_id/post/:id', function (req, res) {
-  db.post
-    .find( {where: {id : req.params.id} })
-    .then( function (foundPost) {
-      foundPost.destroy()
-               .then( function () {
-                  console.log('Post deleted');
-                  res.render('guestbook/deleted', { user: req.user});
-               })
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
+  if ( req.user ) {
+    db.post
+        .find( {where: {id : req.params.id} })
+        .then( function (foundPost) {
+          foundPost.destroy()
+                   .then( function () {
+                      console.log('Post deleted');
+                      res.render('guestbook/deleted', { user: req.user});
+                   })
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+  } else {
+    res.render ('layouts/pleaseLogin', { title: 'about', user : false    });
+  }
+  
 });
 
 // when a user wants to see all guestbook posts
+// if they are not authenticated, redirect to PleaseLogin page
 app.get('/guestbook', function (req, res) {
   if ( req.user ) {
     db.post
@@ -429,6 +435,15 @@ app.get('/about', function (req, res) {
   }
 });
 
+// when a guest visits the Out of Town Guests or Travel page
+app.get('/travel', function (req, res) {
+  if ( req.user ){
+    res.render ('events/travel', { title: 'travel', user : req.user });
+  } else {
+    res.render ('events/travel', { title: 'travel', user : false });
+  }
+});
+
 // when a guest visits contact page
 app.get('/contact', function (req, res) {
   if ( req.user ) {
@@ -438,23 +453,14 @@ app.get('/contact', function (req, res) {
   }
 });
 
-// when a guest visits gift homepage
-app.get('/gifts', function (req, res) {
-  if ( req.user ){
-    res.render ('events/gifts', { title: 'gifts', user : req.user });
-  } else {
-    res.render ('events/gifts', { title: 'gifts', user : false });
-  }
-});
-
-// when a guest visits the FAQ page
-app.get('/faq', function (req, res) {
-  if ( req.user ){
-    res.render ('events/faq', { title: 'faq', user : req.user });
-  } else {
-    res.render ('events/faq', { title: 'faq', user : false });
-  }
-});
+// // when a guest visits gift homepage
+// app.get('/gifts', function (req, res) {
+//   if ( req.user ){
+//     res.render ('events/gifts', { title: 'gifts', user : req.user });
+//   } else {
+//     res.render ('events/gifts', { title: 'gifts', user : false });
+//   }
+// });
 
 
 ////////////////////////////////////////////////////////////////////////////////

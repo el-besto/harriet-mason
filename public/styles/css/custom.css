@@ -3,41 +3,17 @@ h1{
 }
 
 body{
-    background: url("../../img/vintagePaper/TEXTURE A.jpg") no-repeat center center fixed;
-    background-size: cover;
+    /*background: url("../../img/vintagePaper/TEXTURE A.jpg") no-repeat center center fixed;
+    background-size: cover;*/
    /* min-width: 1024px;
     min-height: 768px;
     margin: 0 auto;*/
-    opacity: 0.85;
+    /*opacity: 0.85;*/
     font-family: 'Noto Serif', serif;
+    background-color: #ebe1de; /* or pastel blue #dee8eb */
 }
-/*from node-gallery theme.css*/
 
 
-/*section.info {
-    background-color: #f8f8f8;
-}*/
-
-/*from node-gallery gallery.css*/
-/*ul li.thumb img{
-    max-width: 150px;
-    max-height: 150px;
-}
-*//*ul li.thumb div.image {
-    width: 150px;
-    height: 150px;
-    padding: 0px 0px 10px 0px;
-}*/
-/*ul li.thumb {
-    text-align: center;
-    list-style: none;
-    float: left;
-    width: 150px;
-    min-height: 190px;
-    height: 190px;
-    margin: 10px;
-    padding: 6px 8px;
-}*/
 
 label{
     text-align: center;

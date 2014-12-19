@@ -1,24 +1,45 @@
 <!--views/users/login.ejs-->
 <% include ../layouts/header %>
 
-  <div class="row">
-    <!-- <div class="small-12 small-centered medium-8 medium-centered large-8 large-centered columns"> -->
-      
-    <dl class="tabs" data-tab>
-      <dd class="active"><a href="#loginform">Login</a></dd>
-      <dd><a href="#signupform">Signup</a></dd>
-    </dl>
-    <div class="tabs-content vertical">
-      <div class="content active" id="loginform">
-        <p><% include ../forms/loginform %></p>
-      </div>
-      <div class="content" id="signupform">
-        <p><% include ../forms/signupform %></p>
+<!-- wrapper  -->
+<div class="row">
+  <div class="small-12 columns">
+    
+    <div class="row">
+      <div class="panel">
+        <p>
+          Please sign up with your preferred contact email. We will give the list to Harriet to update her records. Once you sign in please update your mailing address on the user profile page
+        </p>
       </div>
     </div>
+      
+    <dl class="tabs" data-tab>
+        <dd class="active"><a href="#loginform">Login</a></dd>
+        <dd><a href="#signupform">Signup</a></dd>
+        <dd><a href="#beHappy">Be Happy</a></dd>
+      </dl>
+      <div class="tabs-content vertical">
+        <div class="content active" id="loginform">
+          <p><% include ../forms/loginform %></p>
+        </div>
+        <div class="content" id="signupform">
+          <p><% include ../forms/signupform %></p>
+        </div>
+        <div class="content" id="beHappy">
+          <p>
+            <div class="flex-video widescreen youtube">
+              <iframe src="//www.youtube-nocookie.com/embed/YLO7tCdBVrA?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen  width="400" height="225" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            </div>
+          </p>
+          
+        </div>
+      </div>
     
-    <!-- </div> -->
+
   </div>
+</div>
 
 <% include ../layouts/footer %>
 
+
+<!-- layouts/loginSignup -->

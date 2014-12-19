@@ -1,53 +1,67 @@
 <!--views/users/profile.ejs-->
 <% include ../layouts/header %>
 
+<!-- wrapper  -->
 <div class="row">
-  <div class="small-12 small-centered medium-12 medium-centered large-12 large-centered columns">
-      
+  <div class="small-12 columns">
+
     <p>
-      <h3>Welcome! Your Username is: <small><%= user.email %></small></h3> 
+      <h1 class="subheader">Welcome!</h1><br>
+      Your Username is: <%= user.email %>
+    </p>
+  
+  </div>
+</div>
+
+<!-- Welcome blurb, call to action for documenting their userDemographics -->
+<div class="row">
+  <div class="small-12 panel callout columns">
+    
+    <p>
+      Please update your User Details so that we can have the latest contact info for you. This way you can stay in touch with Harriet for the many years to come!
     </p>
     
     <!-- enter/edit userDemog in tabs -->
     <% include ../layouts/profileEditTabs %>
 
-  <!-- profile quicklinks -->
-    <div class="row">  
-      <div class="small-10 medium-8 columns">
-        <h3><a href="/event">CELEBRATE</a></h3> 
-        <p>
-          Harriet would love everyone – both those attending in person, as well as those who are unable to attend live – to sign the below “guest book” and share with her your memories of how you met, a special time you shared together, or something special you want to say to Harriet.
-        </p>
-      </div>
-      <div class="small-2 medium-4 columns">
-        <a href="/event"><i class="fa fa-birthday-cake fa-3x"></i></a>
-      </div>
-    </div>
+  </div>
+</div>
 
-    <div class="row">  
-      <div class="small-10 medium-8 columns">
-        <h3><a href="/guestbook">GUESTBOOK</a></h3> 
-        <p>
-          Harriet would love everyone – both those attending in person, as well as those who are unable to attend live – to sign the below “guest book” and share with her your memories of how you met, a special time you shared together, or something special you want to say to Harriet.
-        </p>
-      </div>
-      <div class="small-2 medium-4 columns">
-        <a href="/guestbook"><i class="fa fa-comments-o fa-3x"></i>
-      </div>
-    </div>
 
-    <div class="row">  
-      <div class="small-10 medium-8 columns">
-        <h3><a href="/gallery">GALLERY</a></h3>
-        <p>
-          Harriet would love everyone – both those attending in person, as well as those who are unable to attend live – to sign the below “guest book” and share with her your memories of how you met, a special time you shared together, or something special you want to say to Harriet.
-        </p>
-      </div>
-      <div class="small-2 medium-4 columns">
-        <a href="/gallery"><i class="fa fa-camera-retro fa-3x"></i></a>
-      </div>
-    </div>
-        
+<!-- primary section descriptions -->
+<div class="row">  
+  <div class="small-12 medium-8 columns">
+    
+    <h3><a href="/event">CELEBRATE</a></h3> 
+    <p>
+      Harriet would love everyone – both those attending in person, as well as those who are unable to attend live – to sign the below “guest book” and share with her your memories of how you met, a special time you shared together, or something special you want to say to Harriet.
+    </p>
+
+    <hr>
+  </div>
+</div>
+
+<div class="row">  
+  <div class="small-12 medium-8 columns">
+    
+    <h3><a href="/guestbook">GUESTBOOK</a></h3> 
+    <p>
+      Harriet would love everyone – both those attending in person, as well as those who are unable to attend live – to sign the below “guest book” and share with her your memories of how you met, a special time you shared together, or something special you want to say to Harriet.
+    </p>
+
+    <hr>
+  </div>
+</div>  
+
+<div class="row">  
+  <div class="small-12 medium-8 columns">
+    
+    <h3><a href="/gallery">GALLERY</a></h3>
+    <p>
+      Harriet would love everyone – both those attending in person, as well as those who are unable to attend live – to sign the below “guest book” and share with her your memories of how you met, a special time you shared together, or something special you want to say to Harriet.
+    </p>
+
+    <hr>
   </div>
 </div>
 

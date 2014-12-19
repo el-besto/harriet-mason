@@ -84,7 +84,7 @@ module.exports = function(sequelize, DataTypes) {
                                  passReqToCallback : true
                                 },
                                 function (req, email, password, done){
-                                  // console.log ("Authenticating");
+                                  console.log ("Authenticating");
                                   user.authenticate (email, password, done);
                                 }
     )
