@@ -128,10 +128,7 @@ app.post('/users', function (req, res) {
                                                       )
                                                 }
                                     );
-                        }
-                       )
-    }).catch (function (err) {
-      console.log(err);
+                        })
 });
 
 // after first login, show update demographics form
