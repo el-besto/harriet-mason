@@ -9,12 +9,23 @@
 </p>
 
 ## KEY LINKS
-[github repo](https://github.com/el-besto/harriet-mason)
-[heroku]()
+- [github repo](https://github.com/el-besto/harriet-mason)
+- [heroku]()
+
+## KEY LEARNINGS
+
+0. Shifting gears is hard. Moving from the "Learn, Practice, Repeat Loop"
+had me in a particular mindset ad it took me a while to get back into the project management and product management mindset. However, you cannot forget the previous skills when tackling a completely new project.
+
+1. Plan first, DO not allow yourself to start actually building until you have a list of features in front of you. Research is ok, building is not. In short - document first. 
+REMEMBER: JUST BECAUSE YOU CAN DOESNT MEAN YOU SHOULD
+
+2. Careful with Git merges. Do not use a feature of version control unless you KNOW what you're doing. Overall don't overreach your bounds, do what you know first, get fancy and improve later.
+
+3. Sleep and frequently breaks are crucial. Bret suggested a particular time-tracking app he has started to use.
 
 
-
-## KEY Deliverables
+## KEY DELIVERABLES
     - "A plan for your pages"  - see scope
     - "A well-defined and written out feature list" 
     - "A written Minimum Viable Product (MVP)"

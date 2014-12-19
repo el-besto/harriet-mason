@@ -1,24 +1,26 @@
-<div class="row">  
+
+    
+<ul class="accordion" data-accordion>
   
-  <ul class="accordion" data-accordion>
-    <li class="accordion-navigation">
-      <a href="#userDetails">User Details</a>
-      <div id="userDetails" class="content">
-        
-        <dl class="tabs" data-tab>
-          <dd class="active"><a href="#newform">Current Info</a></dd>
-          <dd><a href="#profileform">Edit Profile</a></dd>
-        </dl>
-        <div class="tabs-content ">
-          <div class="content active" id="newform">
-            <p><% include ../forms/profileform %></p>
-          </div>
-          <div class="content" id="profileform">
-            <p><% include ../forms/profileformEdit %></p>
-          </div>
-
+  <li class="accordion-navigation">
+    <a href="#userDetails"><i class="fa fa-user"></i> User Details</a>
+    <div id="userDetails" class="content">
+      
+    <dl class="tabs" data-tab>
+      <dd class="active"><a href="#newform">Current Info</a></dd>
+      <dd><a href="#profileform">Edit Profile</a></dd>
+    </dl>
+      
+    <div class="tabs-content ">
+      <div class="content active" id="newform">
+        <p><% include ../forms/profileform %></p>
       </div>
-    </li>
-  </ul>
+      <div class="content" id="profileform">
+        <p><% include ../forms/profileformEdit %></p>
+      </div>
+    
+    </div>
+  
+  </li>
+</ul>
 
-</div>

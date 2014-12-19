@@ -9,7 +9,6 @@
     <div class="single-item responsive center">
       <div><img src="img/e122.jpg" alt=""></div>
       <div><img src="img/e125.jpg" alt=""></div>
-      <div><img src="img/e126.jpg" alt=""></div>
     </div>
   
   </div>
@@ -29,6 +28,11 @@
     </div>
 
 
+    
+
+   <% if (user === false ) { %>
+    
+    <!-- show welcome message if the user is not logged in -->
     <!-- welcome message -->
     <div class="row">
       <div class="small-12 small-centered columns">
@@ -37,13 +41,17 @@
             Please signup to provide contact info to Harriet, share your favorite memories in the <a href="/guestbook">guestbook</a> and browse through a wonderful collection of photos from years past and present!
           </p>
         </div>
+
+        <!-- login/ signup form -->
+        <% include ../layouts/loginSignup %>
+
       </div>
     </div>
+    
+    
 
-
-    <!-- login/ signup form -->
-    <% include ../layouts/loginSignup %>
-
+  <% }  %>
+    <hr>
 <!-- /wrapper   -->    
   </div>
 </div>

@@ -85,7 +85,7 @@ passport.deserializeUser( function (id, done) {
  *                */
 ////////////////////////////////////////////////////////////////////////////////
 
-// when a guest wants to sign up
+// when a guest wants to sign up, show signup page
 app.get('/signup', function (req, res) {
   if ( req.user ) {
     res.render ('users/signup', { title: 'signup', user : req.user });
@@ -127,7 +127,7 @@ app.post('/users', function (req, res) {
                                .create({userId: user.id})
                                .then( function(){
                                         req.login    (user, function(){
-                                        res.redirect ('/users/' + user.id + '/new');
+                                        res.redirect ('/users/profile');
                                                             } 
                                                       )
                                                 }
@@ -397,7 +397,7 @@ app.delete('/guestbook/:user_id/post/:id', function (req, res) {
   } else {
     res.render ('layouts/pleaseLogin', { title: 'about', user : false    });
   }
-  
+
 });
 
 // when a user wants to see all guestbook posts
@@ -454,6 +454,7 @@ app.get('/contact', function (req, res) {
 });
 
 // // when a guest visits gift homepage
+// // will have to be in second release
 // app.get('/gifts', function (req, res) {
 //   if ( req.user ){
 //     res.render ('events/gifts', { title: 'gifts', user : req.user });

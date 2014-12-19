@@ -12,36 +12,30 @@
 
 <aside class="right-off-canvas-menu">
   <ul class="off-canvas-list fa-ul">
-<!--     <li>
-      <label>Users</label>
-    </li> -->
+
   <% if (user) { %>
     <li>
-       <a href="/users/<%= user.id %>"><label><i class="fa fa-user pull-left"></i> <%= user.email %></label></a>
+       <a href="/users/<%= user.id %>"><i class="fa fa-user"></i> <%= user.email %></a>
     </li>
-    <li><i class="fa-li fa fa-check-square"></i> <a href="/logout">Logout</a></li>
-    <li></li>
-    <li><a href="/guestbook/<%= user.id %>/new">new guestbook entry</a></li>
+    <li><i class="fa-li fa fa-check-square"></i> <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a></li>
     <li>
       <label>Celebrating 85 Years</label>
     </li>
-    <li><a href="/event">Event Details</a></li>
-    <li><a href="/event">RSVP</a></li>
+    <li><a href="/event"><i class="fa fa-birthday-cake"></i> Event Details</a></li>
+    <li><a href="/event"><i class="fa fa-birthday-cake"></i> RSVP</a></li>
     <li>
       <label>Sharing Moments</label>
     </li>
-    <li><a href="/about">Harriet's Story</a></li>
-    <li><a href="/guestbook">Guestbook</a></li>
-    <li><a href="/gallery">Gallery</a></li>
-    <li><a href="/contact">Contact</a></li>
+    <li><a href="/about"><i class="fa fa-heart"></i> Harriet's Story</a></li>
+    <li><a href="/guestbook"><i class="fa fa-comments-o"></i> Guestbook</a></li>
+    <li><a href="/gallery"><i class="fa fa-camera"></i> Gallery</a></li>
+    <li><a href="/contact"><i class="fa fa-envelope-o"></i> Contact</a></li>
+  
   <% } else { %>
-    <li><a href="/login">Log In </a></li>
-    <li><a href="/signup">Sign Up</a></li>
+    <li><a href="/login"><i class="fa fa-sign-in"></i> Log In </a></li>
+    <li><a href="/signup"><i class="fa fa-pencil"></i> Sign Up</a></li>
+  
   <% } %>
-    
-    
-    
-    <!-- <li><a href="/newsletter">Words from Harriet</a></li> -->
 
   </ul>
 </aside>

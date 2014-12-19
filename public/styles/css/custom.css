@@ -12,7 +12,9 @@ body{
     font-family: 'Noto Serif', serif;
     background-color: #ebe1de; /* or pastel blue #dee8eb */
 }
-
+.tab-bar {
+    background: #6e5f9e;
+}
 
 
 label{
