@@ -109,43 +109,29 @@ app.post('/users', function (req, res) {
     //                 );             //
     //                                */
   db.user
-    .find({ 
-           where: { email : newUser.email }
-         })
-    .then(function (foundUser){
-      if (!foundUser){
-        db.user
-          .createSecure(//email
-                        newUser.email,
-                        //password
-                        newUser.password, 
-                        //error
-                        function () {
-                          res.redirect("/signup");
-                        },
-                        //success
-                        function (err, user) {
-                             db.userDemog
-                               .create({userId: user.id})
-                               .then( function(){
-                                        req.login    (user, function(){
-                                        res.redirect ('/users/profile');
+    .createSecure(//email
+                  newUser.email,
+                  //password
+                  newUser.password, 
+                  //error
+                  function () {
+                    res.redirect("/signup");
+                  },
+                  //success
+                  function (err, user) {
+                       db.userDemog
+                         .create({userId: user.id})
+                         .then( function(){
+                                  req.login    (user, function(){
+                                  res.redirect ('/users/profile');
                                                             } 
                                                       )
                                                 }
                                     );
                         }
                        )
-      } else {
-        res.render('/signup', { 
-                             message: "Someone with that email already exists",
-                             });
-
-      }
     }).catch (function (err) {
       console.log(err);
-    });
-  
 });
 
 // after first login, show update demographics form
