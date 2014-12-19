@@ -416,16 +416,16 @@ app.get('/about', function (req, res) {
   if ( req.user ) {
     res.render ('site/about', { title: 'about', user : req.user });
   } else {
-    res.render ('site/about', { title: 'about', user : false    });
+    res.render ('layouts/pleaseLogin', { title: 'about', user : false    });
   }
 });
 
-// when a guest visits the Out of Town Guests or Travel page
+// when a user visits the Out of Town Guests or Travel page
 app.get('/travel', function (req, res) {
   if ( req.user ){
     res.render ('events/travel', { title: 'travel', user : req.user });
   } else {
-    res.render ('events/travel', { title: 'travel', user : false });
+    res.render ('layouts/pleaseLogin', { title: 'about', user : false    });
   }
 });
 
@@ -434,7 +434,7 @@ app.get('/contact', function (req, res) {
   if ( req.user ) {
     res.render ('site/contact', { title: 'contact', user : req.user });
   } else {
-    res.render ('site/contact', { title: 'contact', user : false    });
+    res.render ('layouts/pleaseLogin', { title: 'about', user : false    });
   }
 });
 
@@ -444,7 +444,7 @@ app.get('/contact', function (req, res) {
 //   if ( req.user ){
 //     res.render ('events/gifts', { title: 'gifts', user : req.user });
 //   } else {
-//     res.render ('events/gifts', { title: 'gifts', user : false });
+//     res.render ('layouts/pleaseLogin', { title: 'about', user : false    });
 //   }
 // });
 
@@ -478,9 +478,10 @@ app.get('/gallery*', function(req, res){
   data.layout = false; // Express 2.5.* support, don't look for layout.ejs
   
   if ( req.user ) {
-    res.render ( data.type + '.ejs', data );
-  } else {
+    data["user"] = req.user;
     res.render ( data.type + '.ejs', data);
+  } else {
+    res.render ('layouts/pleaseLogin', { title: 'about', user : false    });
   }
 });
 
