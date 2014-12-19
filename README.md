@@ -5,7 +5,7 @@
   What: Birthday site for gma Harriet's 85th birthday celebration. 
 </p>
 <p>
-  Why: Done as a first project for General Assembly's WDI program.
+  Why: Completed as a first project for General Assembly's WDI program.
 </p>
 
 ## KEY LINKS
@@ -14,8 +14,7 @@
 
 ## KEY LEARNINGS
 
-0. Shifting gears is hard. Moving from the "Learn, Practice, Repeat Loop"
-had me in a particular mindset ad it took me a while to get back into the project management and product management mindset. However, you cannot forget the previous skills when tackling a completely new project.
+0. Shifting gears is hard. Moving from the "Learn, Practice, Repeat Loop" had me in a particular mindset ad it took me a while to get back into the project management and product management mindset. However, you cannot forget the previous skills when tackling a completely new project.
 
 1. Plan first, DO not allow yourself to start actually building until you have a list of features in front of you. Research is ok, building is not. In short - document first. 
 REMEMBER: JUST BECAUSE YOU CAN DOESNT MEAN YOU SHOULD
@@ -43,6 +42,9 @@ REMEMBER: JUST BECAUSE YOU CAN DOESNT MEAN YOU SHOULD
 
 
 
+
+
+
 # SCOPE
 ### Share Birthday Celebration Details, Provide Additional Resources for Invitees
 > View event details on event homepage
@@ -59,7 +61,7 @@ REMEMBER: JUST BECAUSE YOU CAN DOESNT MEAN YOU SHOULD
   1. Add tags (year, location (as outlined in the "About Harriet" page, i.e. Balaton, Colorado, San Diego, Portland, Other))
 
 ### Make a Guest into a User
-> Signup (create secure passowrk (bcrypt hashing), and store username in db (postgres))
+> Signup (create secure passowrd (bcrypt hashing), and store username in db (postgres))
 > <b>Signup using OAuth (Facebook, Twitter, AOL)</b>* <small>nice to have</small>
 > Sign in (authenticate as a user and store session (passport, passport-local, cookie-session))
 > Post demographics (for primary email contact info and physical mailing address)
@@ -151,8 +153,9 @@ REMEMBER: JUST BECAUSE YOU CAN DOESNT MEAN YOU SHOULD
 - Views Templating: breakup HTML into partials ('view engine': 'ejs' )
 - Layouts Templating: breakup into partials (header, footer, forms)
 - Routes Modularization: *still to do* 
-- Add Easter egg to login form (great video of illustrious 'pun intended' Bob Ross helpinng explaining why those clouds are such [Happy Little Clouds](https://www.youtube.com/watch?v=YLO7tCdBVrA))
+- Add Easter egg to login form (great video of illustrious 'pun intended' Bob Ross helpinng explaining why those clouds are such [Happy Little Clouds](https://www.youtube.com/watch?v=YLO7tCdBVrA)
 - Comment up all the code!!!
+
 
 ### Deploy
 Heroku
@@ -194,38 +197,4 @@ Heroku
   [Slick.js]()
   [FlipClock.js]()
   [Skrollr.js]()
-```
-
-## High-level user stories
-```
-// general site 
-- Users can login
-- Admins can login
-
-// event interaction
-- Users can RSVP to event
-- Users can see event details (venue address, picture, location)
-- Users can get directions to event (google maps)
-- Users can see event weather
-- Users can see event countdown
-- Users can see a list of recommended local hotels w/links
-- Users can book travel (link to Kayak, or hipmunk)
-
-// event gifts
-- Users can donate to Event Sponsor 
-- Users can buy Harriet gifts from her Registries on (Target.com)
-- Users can contribute to a gift (https://www.braintreepayments.com/)
-
-// photos and videos
-- Admins can upload photos/videos (may do on Flickr)
-- Admins can write static pages 
-- Users can comment on photos and videos
-
-// giftbook - Favorite Memory of Harriet
-- Users can add a personal story 
-
-// Words from Harriet
-- Admins can write simple newsletter/blog post 
-- Users can subscribe to receive newsletters
-- Users can comment on posts 
 ```
