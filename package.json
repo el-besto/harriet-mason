@@ -33,5 +33,8 @@
     "sequelize": "^2.0.0-rc3",
     "sequelize-cli": "^1.0.0",
     "walk": "^2.3.4"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
