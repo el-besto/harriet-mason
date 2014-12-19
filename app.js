@@ -50,6 +50,8 @@ app.use( methodOverride('_method'));
  // Passport Setup  //
  //                 //
 /******************************************************************************/
+
+// establish a session, initialize passport and use the session
 app.use(session({
                  secret: 'thisismysecretkey',
                  name:   'chocolate chip',
@@ -135,7 +137,7 @@ app.post('/users', function (req, res) {
                         }
                        )
       } else {
-        res.render('error', { 
+        res.render('/signup', { 
                              message: "Someone with that email already exists",
                              });
 
