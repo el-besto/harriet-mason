@@ -47,38 +47,52 @@
     <hr>
 
      
-
+    <!-- key details and organizers tabs -->
     <dl class="tabs" data-tab>
       <dd class="active"><a href="#eventKeyDetails">Key Details</a></dd>
-      <dd><a href="#eventLocation">Location</a></dd>
-      <dd><a href="#eventDirections">Directions</a></dd>
-      <dd><a href="#eventOrganizers">Organizers</a></dd>   
+      <dd><a href="#eventOrganizers">Organizers</a></dd> 
     </dl>
     
     <div class="tabs-content">
       
       <div class="content  active" id="eventKeyDetails">
         
-        <!-- <p><%= event.description.text %></p> -->
-        
-        <p>
-          The address is:  2602 NW Vaughn Street, Portland, OR
-        </p>
-        <p class="callout">
-          We will be showing a brief video showcasing some highlights from Harriet’s long, exciting life, and encouraging friends and family to share stories and warm memories.
-        </p>
-        <p>
-          For those coming from out of town, please check out our page specifically for <a href="/travel">Out of Town Guests</a>.
-        </p>
+        <div class="panel">
+          <p class="callout">
+            We will be showing a brief video showcasing some highlights from Harriet’s long, exciting life, and encouraging friends and family to share stories and warm memories.
+          </p>
+          <p>
+            For those coming from out of town, please check out our page specifically for <a href="/travel">Out of Town Guests</a>.
+          </p>
 
-        <!-- weather from Weather Underground's API -->
-        <p>
-          Current Weather: <%= weather.current_observation.temperature_string %>
-        </p>
-      
+          <!-- weather from Weather Underground's API -->
+          <p>
+            Current Weather: <%= weather.current_observation.temperature_string %>
+          </p>
+        </div>
       </div>
       
-      <div class="content" id="eventLocation">
+
+      <div class="content" id="eventOrganizers">
+        <div class="panel">
+          <p>
+            Aurelia (Harriet’s daughter) is the contact person for questions about the event.  While most questions are probably answered by this website, please feel free to contact Aurelia at <a href="mailto:aurelia@powerfullatinas">Aurelia@powerfullatinas.com</a> if you have additional questions.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!-- /key details and organizers tabs -->
+
+    
+
+    <!-- Event Details Tabs -->
+    <dl class="tabs" data-tab>
+      <dd class="active"><a href="#eventLocation">Location</a></dd>
+      <dd><a href="#eventDirections">Directions</a></dd> 
+    </dl>
+    <div class="tabs-content">
+      <div class="content  active" id="eventLocation">
         
         <div class="panel">
           <a href="https://www.meriwethersnw.com/contact-hours">
@@ -102,16 +116,10 @@
 
       </div>
 
-      <div class="content" id="eventOrganizers">
-
-        <p>
-          Aurelia (Harriet’s daughter) is the contact person for questions about the event.  While most questions are probably answered by this website, please feel free to contact Aurelia at <a href="mailto:aurelia@powerfullatinas">Aurelia@powerfullatinas.com</a> if you have additional questions.
-        </p>
-
-      </div>
-      <!-- end tabs -->
-    
     </div>
+    <!-- /Event Details Tabs -->
+
+  
   </div>
 </div>
 
