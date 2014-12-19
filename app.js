@@ -17,7 +17,7 @@
 *******************************************************************************/
 
 var express        = require('express'),
-    PORT           = 3000,
+    PORTLOCAL           = 3000,
     bodyParser     = require('body-parser'),
     db             = require('./models'),
     passport       = require('passport'),
@@ -501,9 +501,9 @@ app.get('/gallery*', function(req, res){
  *******************************************************************************
 *******************************************************************************/
 db.sequelize.sync().then( function () {
-  var server = app.listen (PORT, function () {
+  var server = app.listen (process.env.PORT || 3000, function () {
     console.log ( new Array (50).join("*") );
-    console.log ( "\t listening \n\t\t localhost: " + PORT );
+    console.log ( "\t listening \n\t\t localhost: " + PORTLOCAL );
     console.log ( new Array (50).join("*") );
   });
 });
