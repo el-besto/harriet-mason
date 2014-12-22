@@ -109,26 +109,30 @@ app.post('/users', function (req, res) {
     //                 );             //
     //                                */
   db.user
-    .createSecure(//email
-                  newUser.email,
-                  //password
-                  newUser.password, 
-                  //error
-                  function () {
-                    res.redirect("/signup");
-                  },
-                  //success
-                  function (err, user) {
-                       db.userDemog
-                         .create({userId: user.id})
-                         .then( function(){
-                                  req.login    (user, function(){
-                                  res.redirect ('/users/profile');
-                                                            } 
-                                                      )
-                                                }
-                                    );
-                        })
+    .createSecure(
+    //email
+    newUser.email,
+    //password
+    newUser.password, 
+    //error
+    function () {
+      res.redirect("/signup");
+    },
+    //success
+    function (err, user) {
+      // if the user is successfully created, also create a placeholder row 
+      //   in userDemog table
+     db.userDemog
+       .create ({userId: user.id})
+       .then ( function(user){
+            console.log("OOOOOOOOOO USER ID IS     " + user.id + "    OOOOOOOOOO");
+          req.login (user, function(){
+        
+            res.redirect('/users/:id/new', {user: user, userId :user.id});
+                           })
+                    }
+             );
+    })
 });
 
 // after first login, show update demographics form

@@ -31,9 +31,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       findByEmail: function (email) {
         return this.find({
-                          where: {
-                                  email : email
-                          }
+                          where: { email : email }
         });
       },
       encryptPassword: function (password) {
@@ -72,7 +70,8 @@ module.exports = function(sequelize, DataTypes) {
             function (err) {
                 done (err)
             })  
-      }
+      },
+
     }//ends class methods
   });//closes User definition in sequelize, 
     //below are authentication settings used in the model's methods
