@@ -17,7 +17,6 @@
 *******************************************************************************/
 
 var express        = require('express'),
-    PORTLOCAL      = 3000,
     bodyParser     = require('body-parser'),
     db             = require('./models'),
     passport       = require('passport'),
@@ -222,9 +221,9 @@ app.post('/userdemog/:id', function (req, res) {
               
             })
             .success
-            ( function (foundDemographic) {
+            ( function (results) {
                 console.log("demographics updated");
-                res.redirect('/users/'+ foundDemographic.userId);
+                res.redirect('/users/'+ results.userId);
               });
     })
     .catch( function (err) {
@@ -268,24 +267,8 @@ app.get('/event', function(req, res){
       })
     });
   } else {
-    // do the same thing for non-authenticated users
-    request(eventbriteURL, function(error, response, body) {
-          if(!error && response.statusCode == 200) {
-            var event = JSON.parse(body);
-          }
-          
-          request(weatherUnderground, function(error, response, body) {
-            if(!error && response.statusCode == 200) {
-              var weather = JSON.parse(body);
-            }
-            res.render('events/index', {
-                                        title: 'events', 
-                                        user : false, 
-                                        event: event,
-                                        weather: weather
-                                       })
-          })
-        });
+    res.render ( 'site/index', { title: 'homepage', 
+                                 user : false    });
   }
 });
 
@@ -299,7 +282,9 @@ app.get('/event', function(req, res){
 
 // when a user wants to create a new guestbook entry, render the new post form
 app.get('/guestbook/:user_id/new', function (req, res) {
+  
   var userId = req.params.user_id;
+  
   db.user
     .find({
            where : { id : userId },
@@ -325,14 +310,14 @@ app.post('/guestbook/:user_id/new', function (req, res) {
              userId  : userId
     })
     .then( function (post) {
-      res.redirect('/guestbook/' + userId + '/posts/' + post.id);
+      res.redirect('/guestbook/posts/' + post.id);
     })
     .catch( function (err) {
       console.log(err);
     });
 });
 
-// TESTING TO SEE IF I CAN BREAK APART OBJECT AND RETURN DESCRETELY
+// when a user wants to see a particular post
 app.get('/guestbook/posts/:id', function (req, res) {
   var id = req.params.id;
   db.post
@@ -349,37 +334,23 @@ app.get('/guestbook/posts/:id', function (req, res) {
     });
 });
 
-// when a user wants to see a particular post
-app.get('/guestbook/:user_id/posts/:id', function (req, res) {
-  var userId = req.params.user_id;
-  var id = req.params.id;
-  db.post
-    .find({
-           where: { id : id},
-           include : [db.user, db.userDemog]
-    })
-    .then(function (foundPost) {
-      console.log(foundPost);
-      console.log(foundPost.values);
-      res.render('guestbook/show', { post : foundPost, user: req.user });
-    })
-    .catch(function (err) {
-      console.log(err);
-    });
-});
-
 // when a user wants to delete a particular guestbook entry
 app.delete('/guestbook/:user_id/post/:id', function (req, res) {
   if ( req.user ) {
     db.post
-        .find( {where: {id : req.params.id} })
-        .then( function (foundPost) {
-          foundPost.destroy()
-                   .then( function () {
-                      console.log('Post deleted');
-                      res.render('guestbook/deleted', { user: req.user});
-                   })
-        })
+      .find( {where: {id : req.params.id} })
+      .then(function (foundPost) {
+        if (req.user.id === foundPost.userId){
+         foundPost.destroy()
+                  .then( function () {
+                     console.log('Post deleted');
+                     res.render('guestbook/deleted', { user: req.user});
+                  })
+         } else {
+          res.json('You cannot delete this post because you are not the author, please go back and create a new post.');
+         }
+        }
+        )
         .catch(function (err) {
           console.log(err);
         });
@@ -500,7 +471,7 @@ app.get('/gallery*', function(req, res){
 db.sequelize.sync().then( function () {
   var server = app.listen (process.env.PORT || 3000, function () {
     console.log ( new Array (50).join("*") );
-    console.log ( "\t listening \n\t\t localhost: " + PORTLOCAL );
+    console.log ( "\t listening \n\t\t localhost: " + 3000 );
     console.log ( new Array (50).join("*") );
   });
 });

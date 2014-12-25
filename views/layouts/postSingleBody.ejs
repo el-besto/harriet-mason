@@ -30,7 +30,9 @@
     
     <!-- post Metadata -->
     <p>
-      <strong>shared by:</strong> Angelo Cisneros <!-- HELP < post.userDemog.firstName > < post.userDemog.lastName > -->
+      <strong>shared by:</strong> 
+        <%= post.userDemog.firstName || '' %> 
+        <%= post.userDemog.lastName || '' %>
       <br>
       <strong>tags:</strong>
       <span class="[success secondary] [round radius] label">1992</span>
